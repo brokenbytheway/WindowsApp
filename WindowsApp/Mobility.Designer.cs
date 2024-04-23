@@ -34,6 +34,7 @@
             textBox1 = new TextBox();
             panel2 = new Panel();
             textBox2 = new TextBox();
+            textBox3 = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotTable).BeginInit();
             panel2.SuspendLayout();
@@ -41,6 +42,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(textBox3);
             panel1.Controls.Add(ExportFromExcel);
             panel1.Controls.Add(BotTable);
             panel1.Controls.Add(textBox1);
@@ -103,6 +105,13 @@
             textBox2.Text = "Не таблица";
             textBox2.TextAlign = HorizontalAlignment.Center;
             // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(133, 831);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(371, 27);
+            textBox3.TabIndex = 3;
+            // 
             // Mobility
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -129,5 +138,6 @@
         private TextBox textBox2;
         private DataGridView BotTable;
         private Button ExportFromExcel;
+        private TextBox textBox3;
     }
 }
