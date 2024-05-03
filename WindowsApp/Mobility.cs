@@ -59,8 +59,11 @@ namespace WindowsApp
             DataTable dataTable = new DataTable();
             oleDbDataAdapter.Fill(dataTable);
             excelcon.Close();
-            mobTable.DataSource = dataTable;
-
+            for (int i = dataTable.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow row = dataTable.Rows[i];
+                mobTable.Rows.Add("false", row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4]);
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

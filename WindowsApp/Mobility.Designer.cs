@@ -32,26 +32,32 @@
             toRight = new Button();
             toLeft = new Button();
             mobTable2 = new DataGridView();
-            textBox3 = new TextBox();
-            ExportFromExcel = new Button();
-            mobTable = new DataGridView();
-            toAdd = new DataGridViewCheckBoxColumn();
-            textBox1 = new TextBox();
             toRemove = new DataGridViewCheckBoxColumn();
             course = new DataGridViewTextBoxColumn();
             direction = new DataGridViewTextBoxColumn();
             surname = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
             rating = new DataGridViewTextBoxColumn();
+            textBox3 = new TextBox();
+            ExportFromExcel = new Button();
+            mobTable = new DataGridView();
+            toAdd = new DataGridViewCheckBoxColumn();
+            textBox1 = new TextBox();
+            course0 = new DataGridViewTextBoxColumn();
+            direction0 = new DataGridViewTextBoxColumn();
+            surname0 = new DataGridViewTextBoxColumn();
+            name0 = new DataGridViewTextBoxColumn();
+            rating0 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)mobTable2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mobTable).BeginInit();
             SuspendLayout();
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(694, 3);
+            textBox2.Location = new Point(607, 2);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(560, 27);
+            textBox2.Size = new Size(490, 23);
             textBox2.TabIndex = 6;
             textBox2.Text = "Одобренные заявки";
             textBox2.TextAlign = HorizontalAlignment.Center;
@@ -60,9 +66,10 @@
             // toRight
             // 
             toRight.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            toRight.Location = new Point(628, 349);
+            toRight.Location = new Point(550, 262);
+            toRight.Margin = new Padding(3, 2, 3, 2);
             toRight.Name = "toRight";
-            toRight.Size = new Size(60, 58);
+            toRight.Size = new Size(52, 44);
             toRight.TabIndex = 5;
             toRight.Text = ">>";
             toRight.UseVisualStyleBackColor = true;
@@ -71,9 +78,10 @@
             // toLeft
             // 
             toLeft.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            toLeft.Location = new Point(566, 349);
+            toLeft.Location = new Point(495, 262);
+            toLeft.Margin = new Padding(3, 2, 3, 2);
             toLeft.Name = "toLeft";
-            toLeft.Size = new Size(60, 58);
+            toLeft.Size = new Size(52, 44);
             toLeft.TabIndex = 4;
             toLeft.Text = "<<";
             toLeft.UseVisualStyleBackColor = true;
@@ -83,59 +91,14 @@
             // 
             mobTable2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             mobTable2.Columns.AddRange(new DataGridViewColumn[] { toRemove, course, direction, surname, name, rating });
-            mobTable2.Location = new Point(694, 27);
+            mobTable2.Location = new Point(607, 20);
+            mobTable2.Margin = new Padding(3, 2, 3, 2);
             mobTable2.Name = "mobTable2";
             mobTable2.RowHeadersWidth = 51;
             mobTable2.RowTemplate.Height = 29;
-            mobTable2.Size = new Size(564, 736);
+            mobTable2.Size = new Size(494, 552);
             mobTable2.TabIndex = 1;
             mobTable2.CellContentClick += dataGridView1_CellContentClick_1;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(93, 862);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(371, 27);
-            textBox3.TabIndex = 3;
-            // 
-            // ExportFromExcel
-            // 
-            ExportFromExcel.Location = new Point(217, 799);
-            ExportFromExcel.Name = "ExportFromExcel";
-            ExportFromExcel.Size = new Size(134, 32);
-            ExportFromExcel.TabIndex = 2;
-            ExportFromExcel.Text = "Скачать данные";
-            ExportFromExcel.UseVisualStyleBackColor = true;
-            ExportFromExcel.Click += ExportFromExcel_Click;
-            // 
-            // mobTable
-            // 
-            mobTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mobTable.Columns.AddRange(new DataGridViewColumn[] { toAdd });
-            mobTable.Location = new Point(0, 27);
-            mobTable.Name = "mobTable";
-            mobTable.RowHeadersWidth = 51;
-            mobTable.RowTemplate.Height = 29;
-            mobTable.Size = new Size(560, 736);
-            mobTable.TabIndex = 1;
-            mobTable.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // toAdd
-            // 
-            toAdd.HeaderText = "Выбрано";
-            toAdd.MinimumWidth = 6;
-            toAdd.Name = "toAdd";
-            toAdd.Width = 80;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(0, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(560, 27);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "Заявки на мобильность";
-            textBox1.TextAlign = HorizontalAlignment.Center;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // toRemove
             // 
@@ -151,7 +114,7 @@
             course.MinimumWidth = 50;
             course.Name = "course";
             course.ReadOnly = true;
-            course.Width = 70;
+            course.Width = 58;
             // 
             // direction
             // 
@@ -187,14 +150,94 @@
             rating.MinimumWidth = 70;
             rating.Name = "rating";
             rating.ReadOnly = true;
-            rating.Width = 93;
+            rating.Width = 76;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(81, 646);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(325, 23);
+            textBox3.TabIndex = 3;
+            // 
+            // ExportFromExcel
+            // 
+            ExportFromExcel.Location = new Point(190, 599);
+            ExportFromExcel.Margin = new Padding(3, 2, 3, 2);
+            ExportFromExcel.Name = "ExportFromExcel";
+            ExportFromExcel.Size = new Size(117, 24);
+            ExportFromExcel.TabIndex = 2;
+            ExportFromExcel.Text = "Скачать данные";
+            ExportFromExcel.UseVisualStyleBackColor = true;
+            ExportFromExcel.Click += ExportFromExcel_Click;
+            // 
+            // mobTable
+            // 
+            mobTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            mobTable.Columns.AddRange(new DataGridViewColumn[] { toAdd, course0, direction0, surname0, name0, rating0 });
+            mobTable.Location = new Point(0, 20);
+            mobTable.Margin = new Padding(3, 2, 3, 2);
+            mobTable.Name = "mobTable";
+            mobTable.RowHeadersWidth = 51;
+            mobTable.RowTemplate.Height = 29;
+            mobTable.Size = new Size(490, 552);
+            mobTable.TabIndex = 1;
+            mobTable.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // toAdd
+            // 
+            toAdd.HeaderText = "Выбрано";
+            toAdd.MinimumWidth = 6;
+            toAdd.Name = "toAdd";
+            toAdd.Width = 80;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(0, 2);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(490, 23);
+            textBox1.TabIndex = 0;
+            textBox1.Text = "Заявки на мобильность";
+            textBox1.TextAlign = HorizontalAlignment.Center;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // course0
+            // 
+            course0.HeaderText = "Курс";
+            course0.Name = "course0";
+            course0.ReadOnly = true;
+            // 
+            // direction0
+            // 
+            direction0.HeaderText = "Направление";
+            direction0.Name = "direction0";
+            direction0.ReadOnly = true;
+            // 
+            // surname0
+            // 
+            surname0.HeaderText = "Фамилия";
+            surname0.Name = "surname0";
+            surname0.ReadOnly = true;
+            // 
+            // name0
+            // 
+            name0.HeaderText = "Имя";
+            name0.Name = "name0";
+            name0.ReadOnly = true;
+            // 
+            // rating0
+            // 
+            rating0.HeaderText = "Рейтинг";
+            rating0.Name = "rating0";
+            rating0.ReadOnly = true;
             // 
             // Mobility
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(215, 245, 255);
-            ClientSize = new Size(1262, 913);
+            ClientSize = new Size(1104, 685);
             Controls.Add(toRight);
             Controls.Add(textBox3);
             Controls.Add(toLeft);
@@ -203,6 +246,7 @@
             Controls.Add(mobTable2);
             Controls.Add(textBox1);
             Controls.Add(mobTable);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Mobility";
             Text = "Mobility";
             Load += Mobility_Load;
@@ -228,5 +272,10 @@
         private DataGridViewTextBoxColumn surname;
         private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn rating;
+        private DataGridViewTextBoxColumn course0;
+        private DataGridViewTextBoxColumn direction0;
+        private DataGridViewTextBoxColumn surname0;
+        private DataGridViewTextBoxColumn name0;
+        private DataGridViewTextBoxColumn rating0;
     }
 }
