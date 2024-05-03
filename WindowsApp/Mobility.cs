@@ -59,7 +59,53 @@ namespace WindowsApp
             DataTable dataTable = new DataTable();
             oleDbDataAdapter.Fill(dataTable);
             excelcon.Close();
-            BotTable.DataSource = dataTable;
+            mobTable.DataSource = dataTable;
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = mobTable2.Rows.Count - 1; i >= 0; i--)
+            {
+                DataGridViewRow row = mobTable2.Rows[i];
+                if (Convert.ToBoolean(row.Cells["toRemove"].Value))
+                {
+                    mobTable.Rows.Add("false", mobTable2.Rows[i].Cells[1].Value.ToString(), mobTable2.Rows[i].Cells[2].Value.ToString(), mobTable2.Rows[i].Cells[3].Value.ToString(), mobTable2.Rows[i].Cells[4].Value.ToString(), mobTable2.Rows[i].Cells[5].Value.ToString());
+                    mobTable2.Rows.RemoveAt(i);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = mobTable.Rows.Count - 1; i >= 0; i--)
+            {
+                DataGridViewRow row = mobTable.Rows[i];
+                if (Convert.ToBoolean(row.Cells["toAdd"].Value))
+                {
+                    mobTable2.Rows.Add("false", mobTable.Rows[i].Cells[1].Value.ToString(), mobTable.Rows[i].Cells[2].Value.ToString(), mobTable.Rows[i].Cells[3].Value.ToString(), mobTable.Rows[i].Cells[4].Value.ToString(), mobTable.Rows[i].Cells[5].Value.ToString());
+                    mobTable.Rows.RemoveAt(i);
+                }
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mobility_Load(object sender, EventArgs e)
+        {
 
         }
     }
