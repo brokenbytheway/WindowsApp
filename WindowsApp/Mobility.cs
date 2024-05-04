@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using Excel = Microsoft.Office.Interop.Excel;
 
 
 namespace WindowsApp
@@ -62,7 +63,13 @@ namespace WindowsApp
             for (int i = dataTable.Rows.Count - 1; i >= 0; i--)
             {
                 DataRow row = dataTable.Rows[i];
-                mobTable.Rows.Add("false", row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4]);
+                object[] rowData = new object[row.ItemArray.Length + 1];
+                rowData[0] = "false";
+                for (int j = 0; j < row.ItemArray.Length; j++)
+                {
+                    rowData[j + 1] = row.ItemArray[j];
+                }
+                mobTable.Rows.Add(rowData);
             }
         }
 
@@ -83,7 +90,13 @@ namespace WindowsApp
                 DataGridViewRow row = mobTable2.Rows[i];
                 if (Convert.ToBoolean(row.Cells["toRemove"].Value))
                 {
-                    mobTable.Rows.Add("false", mobTable2.Rows[i].Cells[1].Value.ToString(), mobTable2.Rows[i].Cells[2].Value.ToString(), mobTable2.Rows[i].Cells[3].Value.ToString(), mobTable2.Rows[i].Cells[4].Value.ToString(), mobTable2.Rows[i].Cells[5].Value.ToString());
+                    object[] rowData = new object[row.Cells.Count + 1];
+                    rowData[0] = "false";
+                    for (int j = 1; j < row.Cells.Count; j++)
+                    {
+                        rowData[j] = row.Cells[j].Value;
+                    }
+                    mobTable.Rows.Add(rowData);
                     mobTable2.Rows.RemoveAt(i);
                 }
             }
@@ -96,7 +109,13 @@ namespace WindowsApp
                 DataGridViewRow row = mobTable.Rows[i];
                 if (Convert.ToBoolean(row.Cells["toAdd"].Value))
                 {
-                    mobTable2.Rows.Add("false", mobTable.Rows[i].Cells[1].Value.ToString(), mobTable.Rows[i].Cells[2].Value.ToString(), mobTable.Rows[i].Cells[3].Value.ToString(), mobTable.Rows[i].Cells[4].Value.ToString(), mobTable.Rows[i].Cells[5].Value.ToString());
+                    object[] rowData = new object[row.Cells.Count + 1];
+                    rowData[0] = "false";
+                    for (int j = 1; j < row.Cells.Count; j++)
+                    {
+                        rowData[j] = row.Cells[j].Value;
+                    }
+                    mobTable2.Rows.Add(rowData);
                     mobTable.Rows.RemoveAt(i);
                 }
             }
@@ -110,6 +129,33 @@ namespace WindowsApp
         private void Mobility_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void export_Click(object sender, EventArgs e)
+        {
+            Excel.Application exApp = new Excel.Application();
+            exApp.Workbooks.Add();
+            Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
+            exApp.Columns.ColumnWidth = 15;
+
+            // Заголовки столбцов
+            string[] headers = { "Курс", "Направление", "Фамилия", "Имя", "Отчество", "Почта", "Рейтинг", "Был ли на мобильности ранее", "Направление мобильности", "Кампус", "Срок" };
+            for (int j = 0; j < headers.Length; j++)
+            {
+                wsh.Cells[1, j + 1] = headers[j];
+            }
+            int row = 2; // Начинаем с следующей строки после заголовка
+
+            // Экспортируем данные из DataGridView в Excel
+            foreach (DataGridViewRow dgvRow in mobTable2.Rows)
+            {
+                for (int col = 1; col < mobTable2.Columns.Count; col++)
+                {
+                    wsh.Cells[row, col] = dgvRow.Cells[col].Value;
+                }
+                row++;
+            }
+            exApp.Visible = true;
         }
     }
 }
