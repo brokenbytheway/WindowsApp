@@ -60,7 +60,7 @@ namespace WindowsApp
             DataTable dataTable = new DataTable();
             oleDbDataAdapter.Fill(dataTable);
             excelcon.Close();
-            for (int i = dataTable.Rows.Count - 1; i >= 0; i--)
+            for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 DataRow row = dataTable.Rows[i];
                 object[] rowData = new object[row.ItemArray.Length + 1];
