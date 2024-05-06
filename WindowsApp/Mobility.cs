@@ -62,6 +62,9 @@ namespace WindowsApp
             DataTable dataTable = new DataTable();
             oleDbDataAdapter.Fill(dataTable);
             excelcon.Close();
+            DataView dataView = dataTable.DefaultView;
+            dataView.Sort = "Был ли на мобильности ранее DESC";
+            dataTable = dataView.ToTable();
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 DataRow row = dataTable.Rows[i];
@@ -141,7 +144,7 @@ namespace WindowsApp
             exApp.Columns.ColumnWidth = 15;
 
             // Заголовки столбцов
-            string[] headers = { "Курс", "Направление", "Фамилия", "Имя", "Отчество", "Почта", "Рейтинг", "Был ли на мобильности ранее", "Направление мобильности", "Кампус", "Срок" };
+            string[] headers = { "Курс", "Направление", "Фамилия", "Имя", "Отчество", "Почта", "Был ли на мобильности ранее", "Направление мобильности", "Кампус", "Срок", "Рейтинг"};
             for (int j = 0; j < headers.Length; j++)
             {
                 wsh.Cells[1, j + 1] = headers[j];
@@ -159,107 +162,5 @@ namespace WindowsApp
             }
             exApp.Visible = true;
         }
-
-        public class ColumnFilterClickedEventArg : EventArgs
-        {
-            public int ColumnIndex { get; private set; }
-            public Rectangle ButtonRectangle { get; private set; }
-            public ColumnFilterClickedEventArg(int colIndex, Rectangle btnRect)
-            {
-                this.ColumnIndex = colIndex;
-                this.ButtonRectangle = btnRect;
-            }
-        }
-
-        public class DataGridFilterHeader : DataGridViewColumnHeaderCell
-        {
-            // состояние кнопки
-            ComboBoxState currentState = ComboBoxState.Normal;
-            Point cellLocation;
-            Rectangle buttonRect;
-
-            public event EventHandler<ColumnFilterClickedEventArg> FilterButtonClicked;
-            // расширим заголовок на 20 пикселей что бы вставить туда кнопку
-            protected override void OnDataGridViewChanged()
-            {
-                try
-                {
-                    Padding dropDownPadding = new Padding(0, 0, 20, 0);
-                    this.Style.Padding = Padding.Add(this.InheritedStyle.Padding, dropDownPadding);
-                }
-                catch { }
-                base.OnDataGridViewChanged();
-            }
-            // рисуем кнопку
-            protected override void Paint(Graphics graphics,
-                                      Rectangle clipBounds,
-                                      Rectangle cellBounds,
-                                      int rowIndex,
-                                      DataGridViewElementStates dataGridViewElementState,
-                                      object value,
-                                      object formattedValue,
-                                      string errorText,
-                                      DataGridViewCellStyle cellStyle,
-                                      DataGridViewAdvancedBorderStyle advancedBorderStyle,
-                                      DataGridViewPaintParts paintParts)
-            {
-                base.Paint(graphics, clipBounds,
-                       cellBounds, rowIndex,
-                       dataGridViewElementState, value,
-                       formattedValue, errorText,
-                       cellStyle, advancedBorderStyle, paintParts);
-
-                int width = 20;
-                buttonRect = new Rectangle(cellBounds.X + cellBounds.Width - width, cellBounds.Y, width, cellBounds.Height);
-                cellLocation = cellBounds.Location;
-                ComboBoxRenderer.DrawDropDownButton(graphics, buttonRect, currentState);
-            }
-            // анимация нажатия
-            protected override void OnMouseDown(DataGridViewCellMouseEventArgs e)
-            {
-                if (this.IsMouseOverButton(e.Location))
-                    currentState = ComboBoxState.Pressed;
-                base.OnMouseDown(e);
-            }
-            protected override void OnMouseUp(DataGridViewCellMouseEventArgs e)
-            {
-                if (this.IsMouseOverButton(e.Location))
-                {
-                    currentState = ComboBoxState.Normal;
-                    this.OnFilterButtonClicked();
-                }
-                base.OnMouseUp(e);
-            }
-            private bool IsMouseOverButton(Point e)
-            {
-                Point p = new Point(e.X + cellLocation.X, e.Y + cellLocation.Y);
-                if (p.X >= buttonRect.X && p.X <= buttonRect.X + buttonRect.Width &&
-                p.Y >= buttonRect.Y && p.Y <= buttonRect.Y + buttonRect.Height)
-                {
-                    return true;
-                }
-                return false;
-            }
-            // активируем событие
-            protected virtual void OnFilterButtonClicked()
-            {
-                if (this.FilterButtonClicked != null)
-                {
-                    this.FilterButtonClicked(this, new ColumnFilterClickedEventArg(this.ColumnIndex, this.buttonRect));
-                }
-            }
-        }
-
-        class FilterStatus
-        {
-            // имя колонки
-            public string columnName { get; set; }
-            // значение ячейки
-            public string valueString { get; set; }
-            // состояние фильтра
-            public bool check { get; set; }
-        }
-
-
     }
 }
