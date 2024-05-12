@@ -144,7 +144,7 @@ namespace WindowsApp
             exApp.Columns.ColumnWidth = 15;
 
             // Заголовки столбцов
-            string[] headers = { "Курс", "Направление", "Фамилия", "Имя", "Отчество", "Почта", "Был ли на мобильности ранее", "Направление мобильности", "Кампус", "Срок", "Рейтинг"};
+            string[] headers = { "Курс", "Направление", "Фамилия", "Имя", "Отчество", "Почта", "Был ли на мобильности ранее", "Направление мобильности", "Кампус", "Срок", "Рейтинг" };
             for (int j = 0; j < headers.Length; j++)
             {
                 wsh.Cells[1, j + 1] = headers[j];
@@ -161,6 +161,11 @@ namespace WindowsApp
                 row++;
             }
             exApp.Visible = true;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
