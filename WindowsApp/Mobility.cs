@@ -167,5 +167,10 @@ namespace WindowsApp
         {
 
         }
+
+        private void help_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Help.chm");
+        }
     }
 }
