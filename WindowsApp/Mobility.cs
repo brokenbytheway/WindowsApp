@@ -13,7 +13,6 @@ using static System.Net.Mime.MediaTypeNames;
 using Excel = Microsoft.Office.Interop.Excel;
 using DataGridViewAutoFilter;
 
-
 namespace WindowsApp
 {
     public partial class Mobility : Form
