@@ -62,20 +62,7 @@ namespace WindowsApp
             DataTable dataTable = new DataTable();
             oleDbDataAdapter.Fill(dataTable);
             excelcon.Close();
-            DataView dataView = dataTable.DefaultView;
-            dataView.Sort = "Был ли на мобильности ранее DESC";
-            dataTable = dataView.ToTable();
-            for (int i = 0; i < dataTable.Rows.Count; i++)
-            {
-                DataRow row = dataTable.Rows[i];
-                object[] rowData = new object[row.ItemArray.Length + 1];
-                rowData[0] = "false";
-                for (int j = 0; j < row.ItemArray.Length; j++)
-                {
-                    rowData[j + 1] = row.ItemArray[j];
-                }
-                mobTable.Rows.Add(rowData);
-            }
+            mobTable.DataSource = dataTable;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -88,31 +75,12 @@ namespace WindowsApp
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            for (int i = mobTable2.Rows.Count - 1; i >= 0; i--)
-            {
-                DataGridViewRow row = mobTable2.Rows[i];
-                if (Convert.ToBoolean(row.Cells["toRemove"].Value))
-                {
-                    object[] rowData = new object[row.Cells.Count + 1];
-                    rowData[0] = "false";
-                    for (int j = 1; j < row.Cells.Count; j++)
-                    {
-                        rowData[j] = row.Cells[j].Value;
-                    }
-                    mobTable.Rows.Add(rowData);
-                    mobTable2.Rows.RemoveAt(i);
-                }
-            }
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             for (int i = mobTable.Rows.Count - 1; i >= 0; i--)
             {
                 DataGridViewRow row = mobTable.Rows[i];
-                if (Convert.ToBoolean(row.Cells["toAdd"].Value))
+                if (Convert.ToBoolean(row.Cells["toAdd1"].Value))
                 {
                     object[] rowData = new object[row.Cells.Count + 1];
                     rowData[0] = "false";
@@ -121,7 +89,6 @@ namespace WindowsApp
                         rowData[j] = row.Cells[j].Value;
                     }
                     mobTable2.Rows.Add(rowData);
-                    mobTable.Rows.RemoveAt(i);
                 }
             }
         }
@@ -149,7 +116,7 @@ namespace WindowsApp
             {
                 wsh.Cells[1, j + 1] = headers[j];
             }
-            int row = 2; // Начинаем с следующей строки после заголовка
+            int row = 2; // Начинаем со следующей строки после заголовка
 
             // Экспортируем данные из DataGridView в Excel
             foreach (DataGridViewRow dgvRow in mobTable2.Rows)
@@ -171,6 +138,29 @@ namespace WindowsApp
         private void help_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "Help.chm");
+        }
+
+        private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            for (int i = mobTable2.Rows.Count - 1; i >= 0; i--)
+            {
+                DataGridViewRow row = mobTable2.Rows[i];
+                if (Convert.ToBoolean(row.Cells["toAdd2"].Value))
+                {
+                    object[] rowData = new object[row.Cells.Count + 1];
+                    rowData[0] = "false";
+                    for (int j = 1; j < row.Cells.Count; j++)
+                    {
+                        rowData[j] = row.Cells[j].Value;
+                    }
+                    mobTable2.Rows.RemoveAt(i);
+                }
+            }
         }
     }
 }
