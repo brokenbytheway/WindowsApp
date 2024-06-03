@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using static System.Net.Mime.MediaTypeNames;
 using Excel = Microsoft.Office.Interop.Excel;
-using DataGridViewAutoFilter;
+
 
 namespace WindowsApp
 {
@@ -84,9 +84,7 @@ namespace WindowsApp
                     object[] rowData = new object[row.Cells.Count + 1];
                     rowData[0] = "false";
                     for (int j = 1; j < row.Cells.Count; j++)
-                    {
                         rowData[j] = row.Cells[j].Value;
-                    }
                     mobTable2.Rows.Add(rowData);
                 }
             }
@@ -112,18 +110,14 @@ namespace WindowsApp
             // Заголовки столбцов
             string[] headers = { "Курс", "Направление", "Фамилия", "Имя", "Отчество", "Почта", "Был ли на мобильности ранее", "Направление мобильности", "Кампус", "Срок", "Рейтинг" };
             for (int j = 0; j < headers.Length; j++)
-            {
                 wsh.Cells[1, j + 1] = headers[j];
-            }
             int row = 2; // Начинаем со следующей строки после заголовка
 
             // Экспортируем данные из DataGridView в Excel
             foreach (DataGridViewRow dgvRow in mobTable2.Rows)
             {
                 for (int col = 1; col < mobTable2.Columns.Count; col++)
-                {
                     wsh.Cells[row, col] = dgvRow.Cells[col].Value;
-                }
                 row++;
             }
             exApp.Visible = true;
@@ -150,16 +144,19 @@ namespace WindowsApp
             {
                 DataGridViewRow row = mobTable2.Rows[i];
                 if (Convert.ToBoolean(row.Cells["toAdd2"].Value))
-                {
-                    object[] rowData = new object[row.Cells.Count + 1];
-                    rowData[0] = "false";
-                    for (int j = 1; j < row.Cells.Count; j++)
-                    {
-                        rowData[j] = row.Cells[j].Value;
-                    }
                     mobTable2.Rows.RemoveAt(i);
-                }
             }
+        }
+
+        private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            for (int i = mobTable2.Rows.Count - 1; i >= 0; i--)
+                mobTable2.Rows.RemoveAt(i);
         }
     }
 }
