@@ -59,11 +59,14 @@
             // 
             // textBox2
             // 
+            textBox2.BackColor = Color.CornflowerBlue;
             textBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox2.Location = new Point(0, 508);
+            textBox2.ForeColor = SystemColors.Window;
+            textBox2.Location = new Point(0, 381);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
-            textBox2.Size = new Size(1581, 27);
+            textBox2.Size = new Size(1384, 23);
             textBox2.TabIndex = 6;
             textBox2.Text = "Одобренные заявки";
             textBox2.TextAlign = HorizontalAlignment.Center;
@@ -75,10 +78,11 @@
             add.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             helpProvider1.SetHelpKeyword(add, "25");
             helpProvider1.SetHelpNavigator(add, HelpNavigator.TopicId);
-            add.Location = new Point(590, 443);
+            add.Location = new Point(516, 332);
+            add.Margin = new Padding(3, 2, 3, 2);
             add.Name = "add";
             helpProvider1.SetShowHelp(add, true);
-            add.Size = new Size(172, 60);
+            add.Size = new Size(150, 45);
             add.TabIndex = 5;
             add.Text = "Добавить";
             add.UseVisualStyleBackColor = true;
@@ -86,10 +90,11 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(139, 445);
+            textBox3.Location = new Point(122, 334);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
-            textBox3.Size = new Size(371, 27);
+            textBox3.Size = new Size(325, 23);
             textBox3.TabIndex = 3;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
@@ -98,10 +103,11 @@
             ExportFromExcel.Cursor = Cursors.Hand;
             helpProvider1.SetHelpKeyword(ExportFromExcel, "24");
             helpProvider1.SetHelpNavigator(ExportFromExcel, HelpNavigator.TopicId);
-            ExportFromExcel.Location = new Point(0, 443);
+            ExportFromExcel.Location = new Point(0, 332);
+            ExportFromExcel.Margin = new Padding(3, 2, 3, 2);
             ExportFromExcel.Name = "ExportFromExcel";
             helpProvider1.SetShowHelp(ExportFromExcel, true);
-            ExportFromExcel.Size = new Size(134, 32);
+            ExportFromExcel.Size = new Size(117, 24);
             ExportFromExcel.TabIndex = 2;
             ExportFromExcel.Text = "Скачать данные";
             ExportFromExcel.UseVisualStyleBackColor = true;
@@ -112,11 +118,10 @@
             ExportToExcel.Cursor = Cursors.Hand;
             helpProvider1.SetHelpKeyword(ExportToExcel, "46");
             helpProvider1.SetHelpNavigator(ExportToExcel, HelpNavigator.TopicId);
-            ExportToExcel.Location = new Point(1399, 472);
-            ExportToExcel.Margin = new Padding(3, 4, 3, 4);
+            ExportToExcel.Location = new Point(1224, 354);
             ExportToExcel.Name = "ExportToExcel";
             helpProvider1.SetShowHelp(ExportToExcel, true);
-            ExportToExcel.Size = new Size(182, 31);
+            ExportToExcel.Size = new Size(159, 23);
             ExportToExcel.TabIndex = 7;
             ExportToExcel.Text = "Экспорт в Excel-файл";
             ExportToExcel.UseVisualStyleBackColor = true;
@@ -124,11 +129,14 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = Color.CornflowerBlue;
             textBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(0, 35);
+            textBox1.ForeColor = SystemColors.Window;
+            textBox1.Location = new Point(0, 26);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(1581, 27);
+            textBox1.Size = new Size(1384, 23);
             textBox1.TabIndex = 0;
             textBox1.Text = "Заявки на мобильность";
             textBox1.TextAlign = HorizontalAlignment.Center;
@@ -137,9 +145,10 @@
             // help
             // 
             help.Cursor = Cursors.Help;
-            help.Location = new Point(3, 3);
+            help.Location = new Point(3, 2);
+            help.Margin = new Padding(3, 2, 3, 2);
             help.Name = "help";
-            help.Size = new Size(94, 29);
+            help.Size = new Size(82, 22);
             help.TabIndex = 8;
             help.Text = "Помощь";
             help.UseVisualStyleBackColor = true;
@@ -155,10 +164,11 @@
             delete.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             helpProvider1.SetHelpKeyword(delete, "45");
             helpProvider1.SetHelpNavigator(delete, HelpNavigator.TopicId);
-            delete.Location = new Point(768, 443);
+            delete.Location = new Point(672, 332);
+            delete.Margin = new Padding(3, 2, 3, 2);
             delete.Name = "delete";
             helpProvider1.SetShowHelp(delete, true);
-            delete.Size = new Size(172, 60);
+            delete.Size = new Size(150, 45);
             delete.TabIndex = 11;
             delete.Text = "Удалить";
             delete.UseVisualStyleBackColor = true;
@@ -168,21 +178,21 @@
             // 
             mobTable.AllowUserToAddRows = false;
             mobTable.AllowUserToDeleteRows = false;
+            mobTable.BackgroundColor = SystemColors.ActiveCaption;
             mobTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             mobTable.Columns.AddRange(new DataGridViewColumn[] { toAdd1 });
             mobTable.FilterAndSortEnabled = true;
             mobTable.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
             helpProvider1.SetHelpKeyword(mobTable, "36");
             helpProvider1.SetHelpNavigator(mobTable, HelpNavigator.TopicId);
-            mobTable.Location = new Point(0, 65);
-            mobTable.Margin = new Padding(3, 4, 3, 4);
+            mobTable.Location = new Point(0, 49);
             mobTable.MaxFilterButtonImageHeight = 23;
             mobTable.Name = "mobTable";
             mobTable.RightToLeft = RightToLeft.No;
             mobTable.RowHeadersWidth = 51;
             mobTable.RowTemplate.Height = 25;
             helpProvider1.SetShowHelp(mobTable, true);
-            mobTable.Size = new Size(1582, 373);
+            mobTable.Size = new Size(1384, 280);
             mobTable.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             mobTable.TabIndex = 9;
             mobTable.CellContentClick += advancedDataGridView1_CellContentClick;
@@ -194,7 +204,7 @@
             toAdd1.MinimumWidth = 24;
             toAdd1.Name = "toAdd1";
             toAdd1.SortMode = DataGridViewColumnSortMode.Programmatic;
-            toAdd1.Width = 102;
+            toAdd1.Width = 82;
             // 
             // clear
             // 
@@ -202,10 +212,11 @@
             clear.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             helpProvider1.SetHelpKeyword(clear, "45");
             helpProvider1.SetHelpNavigator(clear, HelpNavigator.TopicId);
-            clear.Location = new Point(946, 443);
+            clear.Location = new Point(828, 332);
+            clear.Margin = new Padding(3, 2, 3, 2);
             clear.Name = "clear";
             helpProvider1.SetShowHelp(clear, true);
-            clear.Size = new Size(172, 60);
+            clear.Size = new Size(150, 45);
             clear.TabIndex = 13;
             clear.Text = "Очистить";
             clear.UseVisualStyleBackColor = true;
@@ -213,13 +224,15 @@
             // 
             // mobTable2
             // 
+            mobTable2.BackgroundColor = SystemColors.ActiveCaption;
             mobTable2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             mobTable2.Columns.AddRange(new DataGridViewColumn[] { toAdd2, course2, direction2, surname2, name2, patronymic2, email2, wasOrNo2, mobDirection2, campus2, time2, rating2 });
-            mobTable2.Location = new Point(0, 538);
+            mobTable2.Location = new Point(0, 404);
+            mobTable2.Margin = new Padding(3, 2, 3, 2);
             mobTable2.Name = "mobTable2";
             mobTable2.RowHeadersWidth = 51;
             mobTable2.RowTemplate.Height = 29;
-            mobTable2.Size = new Size(1582, 359);
+            mobTable2.Size = new Size(1384, 269);
             mobTable2.TabIndex = 12;
             mobTable2.CellContentClick += dataGridView1_CellContentClick_2;
             // 
@@ -231,7 +244,7 @@
             toAdd2.Name = "toAdd2";
             toAdd2.Resizable = DataGridViewTriState.True;
             toAdd2.SortMode = DataGridViewColumnSortMode.Automatic;
-            toAdd2.Width = 102;
+            toAdd2.Width = 82;
             // 
             // course2
             // 
@@ -239,7 +252,7 @@
             course2.HeaderText = "Курс";
             course2.MinimumWidth = 24;
             course2.Name = "course2";
-            course2.Width = 70;
+            course2.Width = 58;
             // 
             // direction2
             // 
@@ -247,7 +260,7 @@
             direction2.HeaderText = "Направление";
             direction2.MinimumWidth = 24;
             direction2.Name = "direction2";
-            direction2.Width = 133;
+            direction2.Width = 106;
             // 
             // surname2
             // 
@@ -255,7 +268,7 @@
             surname2.HeaderText = "Фамилия";
             surname2.MinimumWidth = 24;
             surname2.Name = "surname2";
-            surname2.Width = 102;
+            surname2.Width = 83;
             // 
             // name2
             // 
@@ -263,7 +276,7 @@
             name2.HeaderText = "Имя";
             name2.MinimumWidth = 24;
             name2.Name = "name2";
-            name2.Width = 68;
+            name2.Width = 56;
             // 
             // patronymic2
             // 
@@ -271,7 +284,7 @@
             patronymic2.HeaderText = "Отчество";
             patronymic2.MinimumWidth = 24;
             patronymic2.Name = "patronymic2";
-            patronymic2.Width = 101;
+            patronymic2.Width = 83;
             // 
             // email2
             // 
@@ -279,7 +292,7 @@
             email2.HeaderText = "Почта";
             email2.MinimumWidth = 24;
             email2.Name = "email2";
-            email2.Width = 80;
+            email2.Width = 66;
             // 
             // wasOrNo2
             // 
@@ -287,7 +300,7 @@
             wasOrNo2.HeaderText = "Был ли на мобильности ранее";
             wasOrNo2.MinimumWidth = 24;
             wasOrNo2.Name = "wasOrNo2";
-            wasOrNo2.Width = 191;
+            wasOrNo2.Width = 154;
             // 
             // mobDirection2
             // 
@@ -295,7 +308,7 @@
             mobDirection2.HeaderText = "Направление мобильности";
             mobDirection2.MinimumWidth = 24;
             mobDirection2.Name = "mobDirection2";
-            mobDirection2.Width = 210;
+            mobDirection2.Width = 168;
             // 
             // campus2
             // 
@@ -303,7 +316,7 @@
             campus2.HeaderText = "Кампус";
             campus2.MinimumWidth = 24;
             campus2.Name = "campus2";
-            campus2.Width = 89;
+            campus2.Width = 73;
             // 
             // time2
             // 
@@ -311,7 +324,7 @@
             time2.HeaderText = "Срок";
             time2.MinimumWidth = 24;
             time2.Name = "time2";
-            time2.Width = 72;
+            time2.Width = 60;
             // 
             // rating2
             // 
@@ -319,15 +332,15 @@
             rating2.HeaderText = "Рейтинг";
             rating2.MinimumWidth = 24;
             rating2.Name = "rating2";
-            rating2.Width = 93;
+            rating2.Width = 76;
             // 
             // Mobility
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(215, 245, 255);
-            ClientSize = new Size(1582, 923);
+            ClientSize = new Size(1384, 692);
             Controls.Add(clear);
             Controls.Add(mobTable2);
             Controls.Add(delete);
@@ -342,6 +355,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             helpProvider1.SetHelpKeyword(this, "221");
             helpProvider1.SetHelpNavigator(this, HelpNavigator.TopicId);
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Mobility";

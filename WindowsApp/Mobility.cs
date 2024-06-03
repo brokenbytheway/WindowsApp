@@ -155,7 +155,7 @@ namespace WindowsApp
 
         private void clear_Click(object sender, EventArgs e)
         {
-            for (int i = mobTable2.Rows.Count - 1; i >= 0; i--)
+            for (int i = mobTable2.Rows.Count - 2; i >= 0; i--)
                 mobTable2.Rows.RemoveAt(i);
         }
     }
