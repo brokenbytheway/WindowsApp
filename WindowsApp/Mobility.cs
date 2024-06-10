@@ -45,7 +45,14 @@ namespace WindowsApp
             {
                 string filepath = openFileDialog.FileName;
                 textBox3.Text = filepath;
-                LoadDataFromExcelToDataGridView(filepath, ".xlsx", "yes");
+                try
+                {
+                    LoadDataFromExcelToDataGridView(filepath, ".xlsx", "yes");
+                }
+                catch
+                {
+                    MessageBox.Show("В приложение может быть загружена только таблицы формата \".xlsx\".", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         public void LoadDataFromExcelToDataGridView(string fpath, string ext, string hdr)
@@ -61,7 +68,17 @@ namespace WindowsApp
             DataTable dataTable = new DataTable();
             oleDbDataAdapter.Fill(dataTable);
             excelcon.Close();
-            mobTable.DataSource = dataTable;
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                DataRow row = dataTable.Rows[i];
+                object[] rowData = new object[row.ItemArray.Length + 1];
+                rowData[0] = "false";
+                for (int j = 0; j < row.ItemArray.Length; j++)
+                {
+                    rowData[j + 1] = row.ItemArray[j];
+                }
+                mobTable.Rows.Add(rowData);
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -76,18 +93,24 @@ namespace WindowsApp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Stack<object[]> reversed = new Stack<object[]>();
             for (int i = mobTable.Rows.Count - 1; i >= 0; i--)
             {
                 DataGridViewRow row = mobTable.Rows[i];
-                if (Convert.ToBoolean(row.Cells["toAdd1"].Value))
+                if (Convert.ToBoolean(row.Cells["toAdd"].Value))
                 {
                     object[] rowData = new object[row.Cells.Count + 1];
                     rowData[0] = "false";
                     for (int j = 1; j < row.Cells.Count; j++)
+                    {
                         rowData[j] = row.Cells[j].Value;
-                    mobTable2.Rows.Add(rowData);
+                    }
+                    reversed.Push(rowData);
+                    mobTable.Rows.RemoveAt(i);
                 }
             }
+            while (reversed.Count > 0)
+                mobTable2.Rows.Add(reversed.Pop());
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -144,7 +167,16 @@ namespace WindowsApp
             {
                 DataGridViewRow row = mobTable2.Rows[i];
                 if (Convert.ToBoolean(row.Cells["toAdd2"].Value))
+                {
+                    object[] rowData = new object[row.Cells.Count + 1];
+                    rowData[0] = "false";
+                    for (int j = 1; j < row.Cells.Count; j++)
+                    {
+                        rowData[j] = row.Cells[j].Value;
+                    }
+                    mobTable.Rows.Add(rowData);
                     mobTable2.Rows.RemoveAt(i);
+                }
             }
         }
 
@@ -157,6 +189,48 @@ namespace WindowsApp
         {
             for (int i = mobTable2.Rows.Count - 2; i >= 0; i--)
                 mobTable2.Rows.RemoveAt(i);
+        }
+
+        private void mobTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<object[]> toSort = new List<object[]>();
+            for (int rowIndex = mobTable.Rows.Count - 2; rowIndex >= 0; rowIndex--)
+            {
+                object[] rowData = new object[12];
+                rowData[0] = "false";
+                for (int columnIndex = 0; columnIndex < 12; columnIndex++)
+                    rowData[columnIndex] = mobTable.Rows[rowIndex].Cells[columnIndex].Value;
+                toSort.Add(rowData);
+                mobTable.Rows.RemoveAt(rowIndex);
+            }
+            try
+            {
+                var sorted = from row in toSort
+                             orderby row[7] descending, row[11] descending
+                             select row;
+                foreach (object[] rowData in sorted)
+                    mobTable.Rows.Add(rowData);
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Ошибка сортировки: рейтинг должен быть заполнен в каждой строке. Загрузите таблицу заново и заполните рейтинг.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Дополнительная логика обработки ошибки, если необходимо
+            }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Filter_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

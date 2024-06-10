@@ -59,5 +59,45 @@ namespace WindowsApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1691170423_grizly_club_p_kartinki_strelka_vniz_bez_fona_60 {
+            get {
+                object obj = ResourceManager.GetObject("1691170423_grizly-club-p-kartinki-strelka-vniz-bez-fona-60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap вверх {
+            get {
+                object obj = ResourceManager.GetObject("вверх", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap стрелка_вверх {
+            get {
+                object obj = ResourceManager.GetObject("стрелка вверх", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap стрелка_вниз {
+            get {
+                object obj = ResourceManager.GetObject("стрелка вниз", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

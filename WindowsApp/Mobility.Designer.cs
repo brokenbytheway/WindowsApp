@@ -38,9 +38,8 @@
             help = new Button();
             helpProvider1 = new HelpProvider();
             delete = new Button();
-            mobTable = new Zuby.ADGV.AdvancedDataGridView();
-            toAdd1 = new DataGridViewCheckBoxColumn();
-            clear = new Button();
+            order = new Button();
+            Filter = new Button();
             mobTable2 = new DataGridView();
             toAdd2 = new DataGridViewCheckBoxColumn();
             course2 = new DataGridViewTextBoxColumn();
@@ -54,8 +53,22 @@
             campus2 = new DataGridViewTextBoxColumn();
             time2 = new DataGridViewTextBoxColumn();
             rating2 = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)mobTable).BeginInit();
+            mobTable = new DataGridView();
+            toAdd = new DataGridViewCheckBoxColumn();
+            course = new DataGridViewTextBoxColumn();
+            direction = new DataGridViewTextBoxColumn();
+            surname = new DataGridViewTextBoxColumn();
+            name = new DataGridViewTextBoxColumn();
+            patronymic = new DataGridViewTextBoxColumn();
+            email = new DataGridViewTextBoxColumn();
+            wasOrNo = new DataGridViewTextBoxColumn();
+            mobDirection = new DataGridViewTextBoxColumn();
+            campus = new DataGridViewTextBoxColumn();
+            time = new DataGridViewTextBoxColumn();
+            rating = new DataGridViewTextBoxColumn();
+            textBox4 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)mobTable2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mobTable).BeginInit();
             SuspendLayout();
             // 
             // textBox2
@@ -75,21 +88,21 @@
             // add
             // 
             add.Cursor = Cursors.Hand;
-            add.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            add.Font = new Font("Verdana", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
             helpProvider1.SetHelpKeyword(add, "25");
             helpProvider1.SetHelpNavigator(add, HelpNavigator.TopicId);
-            add.Location = new Point(590, 443);
+            add.Image = Properties.Resources.стрелка_вниз;
+            add.Location = new Point(686, 442);
             add.Name = "add";
             helpProvider1.SetShowHelp(add, true);
-            add.Size = new Size(171, 60);
+            add.Size = new Size(80, 60);
             add.TabIndex = 5;
-            add.Text = "Добавить";
             add.UseVisualStyleBackColor = true;
             add.Click += button2_Click;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(154, 445);
+            textBox3.Location = new Point(257, 4);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
             textBox3.Size = new Size(371, 27);
@@ -101,10 +114,10 @@
             ExportFromExcel.Cursor = Cursors.Hand;
             helpProvider1.SetHelpKeyword(ExportFromExcel, "24");
             helpProvider1.SetHelpNavigator(ExportFromExcel, HelpNavigator.TopicId);
-            ExportFromExcel.Location = new Point(0, 443);
+            ExportFromExcel.Location = new Point(103, 3);
             ExportFromExcel.Name = "ExportFromExcel";
             helpProvider1.SetShowHelp(ExportFromExcel, true);
-            ExportFromExcel.Size = new Size(148, 32);
+            ExportFromExcel.Size = new Size(148, 29);
             ExportFromExcel.TabIndex = 2;
             ExportFromExcel.Text = "Загрузить данные";
             ExportFromExcel.UseVisualStyleBackColor = true;
@@ -157,65 +170,47 @@
             // delete
             // 
             delete.Cursor = Cursors.Hand;
-            delete.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            delete.Font = new Font("Arial Narrow", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             helpProvider1.SetHelpKeyword(delete, "45");
             helpProvider1.SetHelpNavigator(delete, HelpNavigator.TopicId);
-            delete.Location = new Point(768, 443);
+            delete.Image = Properties.Resources.стрелка_вверх;
+            delete.Location = new Point(803, 442);
             delete.Name = "delete";
             helpProvider1.SetShowHelp(delete, true);
-            delete.Size = new Size(171, 60);
+            delete.Size = new Size(80, 60);
             delete.TabIndex = 11;
-            delete.Text = "Удалить";
             delete.UseVisualStyleBackColor = true;
             delete.Click += button1_Click_1;
             // 
-            // mobTable
+            // order
             // 
-            mobTable.AllowUserToAddRows = false;
-            mobTable.AllowUserToDeleteRows = false;
-            mobTable.BackgroundColor = SystemColors.ActiveCaption;
-            mobTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mobTable.Columns.AddRange(new DataGridViewColumn[] { toAdd1 });
-            mobTable.FilterAndSortEnabled = true;
-            mobTable.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
-            helpProvider1.SetHelpKeyword(mobTable, "36");
-            helpProvider1.SetHelpNavigator(mobTable, HelpNavigator.TopicId);
-            mobTable.Location = new Point(0, 65);
-            mobTable.Margin = new Padding(3, 4, 3, 4);
-            mobTable.MaxFilterButtonImageHeight = 23;
-            mobTable.Name = "mobTable";
-            mobTable.RightToLeft = RightToLeft.No;
-            mobTable.RowHeadersWidth = 51;
-            mobTable.RowTemplate.Height = 25;
-            helpProvider1.SetShowHelp(mobTable, true);
-            mobTable.Size = new Size(1582, 373);
-            mobTable.SortStringChangedInvokeBeforeDatasourceUpdate = true;
-            mobTable.TabIndex = 9;
-            mobTable.CellContentClick += advancedDataGridView1_CellContentClick;
+            order.Cursor = Cursors.Hand;
+            order.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            helpProvider1.SetHelpKeyword(order, "25");
+            helpProvider1.SetHelpNavigator(order, HelpNavigator.TopicId);
+            order.Location = new Point(3, 443);
+            order.Name = "order";
+            helpProvider1.SetShowHelp(order, true);
+            order.Size = new Size(146, 31);
+            order.TabIndex = 15;
+            order.Text = "Сортировать";
+            order.UseVisualStyleBackColor = true;
+            order.Click += button1_Click;
             // 
-            // toAdd1
+            // Filter
             // 
-            toAdd1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            toAdd1.HeaderText = "Выбрано";
-            toAdd1.MinimumWidth = 24;
-            toAdd1.Name = "toAdd1";
-            toAdd1.SortMode = DataGridViewColumnSortMode.Programmatic;
-            toAdd1.Width = 102;
-            // 
-            // clear
-            // 
-            clear.Cursor = Cursors.Hand;
-            clear.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            helpProvider1.SetHelpKeyword(clear, "45");
-            helpProvider1.SetHelpNavigator(clear, HelpNavigator.TopicId);
-            clear.Location = new Point(946, 443);
-            clear.Name = "clear";
-            helpProvider1.SetShowHelp(clear, true);
-            clear.Size = new Size(171, 60);
-            clear.TabIndex = 13;
-            clear.Text = "Очистить";
-            clear.UseVisualStyleBackColor = true;
-            clear.Click += clear_Click;
+            Filter.Cursor = Cursors.Hand;
+            Filter.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            helpProvider1.SetHelpKeyword(Filter, "25");
+            helpProvider1.SetHelpNavigator(Filter, HelpNavigator.TopicId);
+            Filter.Location = new Point(369, 472);
+            Filter.Name = "Filter";
+            helpProvider1.SetShowHelp(Filter, true);
+            Filter.Size = new Size(146, 31);
+            Filter.TabIndex = 18;
+            Filter.Text = "Фильтровать";
+            Filter.UseVisualStyleBackColor = true;
+            Filter.Click += Filter_Click;
             // 
             // mobTable2
             // 
@@ -328,6 +323,125 @@
             rating2.Name = "rating2";
             rating2.Width = 93;
             // 
+            // mobTable
+            // 
+            mobTable.BackgroundColor = SystemColors.ActiveCaption;
+            mobTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            mobTable.Columns.AddRange(new DataGridViewColumn[] { toAdd, course, direction, surname, name, patronymic, email, wasOrNo, mobDirection, campus, time, rating });
+            mobTable.Location = new Point(0, 68);
+            mobTable.Name = "mobTable";
+            mobTable.RowHeadersWidth = 51;
+            mobTable.RowTemplate.Height = 29;
+            mobTable.Size = new Size(1582, 369);
+            mobTable.TabIndex = 14;
+            mobTable.CellContentClick += mobTable_CellContentClick;
+            // 
+            // toAdd
+            // 
+            toAdd.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            toAdd.HeaderText = "Выбрано";
+            toAdd.MinimumWidth = 24;
+            toAdd.Name = "toAdd";
+            toAdd.Resizable = DataGridViewTriState.True;
+            toAdd.SortMode = DataGridViewColumnSortMode.Automatic;
+            toAdd.Width = 102;
+            // 
+            // course
+            // 
+            course.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            course.HeaderText = "Курс";
+            course.MinimumWidth = 24;
+            course.Name = "course";
+            course.Width = 70;
+            // 
+            // direction
+            // 
+            direction.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            direction.HeaderText = "Направление";
+            direction.MinimumWidth = 24;
+            direction.Name = "direction";
+            direction.Width = 133;
+            // 
+            // surname
+            // 
+            surname.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            surname.HeaderText = "Фамилия";
+            surname.MinimumWidth = 24;
+            surname.Name = "surname";
+            surname.Width = 102;
+            // 
+            // name
+            // 
+            name.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            name.HeaderText = "Имя";
+            name.MinimumWidth = 24;
+            name.Name = "name";
+            name.Width = 68;
+            // 
+            // patronymic
+            // 
+            patronymic.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            patronymic.HeaderText = "Отчество";
+            patronymic.MinimumWidth = 24;
+            patronymic.Name = "patronymic";
+            patronymic.Width = 101;
+            // 
+            // email
+            // 
+            email.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            email.HeaderText = "Почта";
+            email.MinimumWidth = 24;
+            email.Name = "email";
+            email.Width = 80;
+            // 
+            // wasOrNo
+            // 
+            wasOrNo.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            wasOrNo.HeaderText = "Был ли на мобильности ранее";
+            wasOrNo.MinimumWidth = 24;
+            wasOrNo.Name = "wasOrNo";
+            wasOrNo.Width = 191;
+            // 
+            // mobDirection
+            // 
+            mobDirection.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            mobDirection.HeaderText = "Направление мобильности";
+            mobDirection.MinimumWidth = 24;
+            mobDirection.Name = "mobDirection";
+            mobDirection.Width = 210;
+            // 
+            // campus
+            // 
+            campus.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            campus.HeaderText = "Кампус";
+            campus.MinimumWidth = 24;
+            campus.Name = "campus";
+            campus.Width = 89;
+            // 
+            // time
+            // 
+            time.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            time.HeaderText = "Срок";
+            time.MinimumWidth = 24;
+            time.Name = "time";
+            time.Width = 72;
+            // 
+            // rating
+            // 
+            rating.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            rating.HeaderText = "Рейтинг";
+            rating.MinimumWidth = 24;
+            rating.Name = "rating";
+            rating.Width = 93;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(257, 447);
+            textBox4.Name = "textBox4";
+            textBox4.ReadOnly = true;
+            textBox4.Size = new Size(371, 27);
+            textBox4.TabIndex = 17;
+            // 
             // Mobility
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -336,10 +450,12 @@
             BackColor = Color.FromArgb(215, 245, 255);
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1582, 923);
-            Controls.Add(clear);
+            Controls.Add(Filter);
+            Controls.Add(textBox4);
+            Controls.Add(order);
+            Controls.Add(mobTable);
             Controls.Add(mobTable2);
             Controls.Add(delete);
-            Controls.Add(mobTable);
             Controls.Add(help);
             Controls.Add(textBox1);
             Controls.Add(ExportToExcel);
@@ -357,8 +473,8 @@
             helpProvider1.SetShowHelp(this, true);
             Text = "Mobility";
             Load += Mobility_Load;
-            ((System.ComponentModel.ISupportInitialize)mobTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)mobTable2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mobTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -372,9 +488,7 @@
         private TextBox textBox1;
         private Button help;
         private HelpProvider helpProvider1;
-        private Zuby.ADGV.AdvancedDataGridView mobTable;
         private Button delete;
-        private DataGridViewCheckBoxColumn toAdd1;
         private DataGridView mobTable2;
         private DataGridViewCheckBoxColumn toAdd2;
         private DataGridViewTextBoxColumn course2;
@@ -388,6 +502,21 @@
         private DataGridViewTextBoxColumn campus2;
         private DataGridViewTextBoxColumn time2;
         private DataGridViewTextBoxColumn rating2;
-        private Button clear;
+        private DataGridView mobTable;
+        private DataGridViewCheckBoxColumn toAdd;
+        private DataGridViewTextBoxColumn course;
+        private DataGridViewTextBoxColumn direction;
+        private DataGridViewTextBoxColumn surname;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn patronymic;
+        private DataGridViewTextBoxColumn email;
+        private DataGridViewTextBoxColumn wasOrNo;
+        private DataGridViewTextBoxColumn mobDirection;
+        private DataGridViewTextBoxColumn campus;
+        private DataGridViewTextBoxColumn time;
+        private DataGridViewTextBoxColumn rating;
+        private Button order;
+        private TextBox textBox4;
+        private Button Filter;
     }
 }
