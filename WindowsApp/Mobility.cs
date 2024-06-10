@@ -12,7 +12,6 @@ using System.Windows.Forms.VisualStyles;
 using static System.Net.Mime.MediaTypeNames;
 using Excel = Microsoft.Office.Interop.Excel;
 
-
 namespace WindowsApp
 {
     public partial class Mobility : Form
