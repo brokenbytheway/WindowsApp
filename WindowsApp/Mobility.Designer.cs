@@ -66,7 +66,7 @@
             campus = new DataGridViewTextBoxColumn();
             time = new DataGridViewTextBoxColumn();
             rating = new DataGridViewTextBoxColumn();
-            textBox4 = new TextBox();
+            directions = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)mobTable2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mobTable).BeginInit();
             SuspendLayout();
@@ -76,7 +76,7 @@
             textBox2.BackColor = Color.CornflowerBlue;
             textBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             textBox2.ForeColor = SystemColors.Window;
-            textBox2.Location = new Point(0, 508);
+            textBox2.Location = new Point(0, 513);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
             textBox2.Size = new Size(1581, 27);
@@ -92,7 +92,7 @@
             helpProvider1.SetHelpKeyword(add, "25");
             helpProvider1.SetHelpNavigator(add, HelpNavigator.TopicId);
             add.Image = Properties.Resources.стрелка_вниз;
-            add.Location = new Point(686, 442);
+            add.Location = new Point(686, 446);
             add.Name = "add";
             helpProvider1.SetShowHelp(add, true);
             add.Size = new Size(80, 60);
@@ -102,7 +102,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(257, 4);
+            textBox3.Location = new Point(257, 8);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
             textBox3.Size = new Size(371, 27);
@@ -114,7 +114,7 @@
             ExportFromExcel.Cursor = Cursors.Hand;
             helpProvider1.SetHelpKeyword(ExportFromExcel, "24");
             helpProvider1.SetHelpNavigator(ExportFromExcel, HelpNavigator.TopicId);
-            ExportFromExcel.Location = new Point(103, 3);
+            ExportFromExcel.Location = new Point(103, 7);
             ExportFromExcel.Name = "ExportFromExcel";
             helpProvider1.SetShowHelp(ExportFromExcel, true);
             ExportFromExcel.Size = new Size(148, 29);
@@ -128,7 +128,7 @@
             ExportToExcel.Cursor = Cursors.Hand;
             helpProvider1.SetHelpKeyword(ExportToExcel, "46");
             helpProvider1.SetHelpNavigator(ExportToExcel, HelpNavigator.TopicId);
-            ExportToExcel.Location = new Point(1399, 472);
+            ExportToExcel.Location = new Point(1396, 479);
             ExportToExcel.Margin = new Padding(3, 4, 3, 4);
             ExportToExcel.Name = "ExportToExcel";
             helpProvider1.SetShowHelp(ExportToExcel, true);
@@ -143,7 +143,7 @@
             textBox1.BackColor = Color.CornflowerBlue;
             textBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             textBox1.ForeColor = SystemColors.Window;
-            textBox1.Location = new Point(0, 35);
+            textBox1.Location = new Point(0, 42);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(1581, 27);
@@ -155,7 +155,7 @@
             // help
             // 
             help.Cursor = Cursors.Help;
-            help.Location = new Point(3, 3);
+            help.Location = new Point(3, 7);
             help.Name = "help";
             help.Size = new Size(94, 29);
             help.TabIndex = 8;
@@ -174,7 +174,7 @@
             helpProvider1.SetHelpKeyword(delete, "45");
             helpProvider1.SetHelpNavigator(delete, HelpNavigator.TopicId);
             delete.Image = Properties.Resources.стрелка_вверх;
-            delete.Location = new Point(803, 442);
+            delete.Location = new Point(803, 446);
             delete.Name = "delete";
             helpProvider1.SetShowHelp(delete, true);
             delete.Size = new Size(80, 60);
@@ -188,7 +188,7 @@
             order.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             helpProvider1.SetHelpKeyword(order, "25");
             helpProvider1.SetHelpNavigator(order, HelpNavigator.TopicId);
-            order.Location = new Point(3, 443);
+            order.Location = new Point(4, 442);
             order.Name = "order";
             helpProvider1.SetShowHelp(order, true);
             order.Size = new Size(146, 31);
@@ -203,7 +203,7 @@
             Filter.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             helpProvider1.SetHelpKeyword(Filter, "25");
             helpProvider1.SetHelpNavigator(Filter, HelpNavigator.TopicId);
-            Filter.Location = new Point(369, 472);
+            Filter.Location = new Point(369, 474);
             Filter.Name = "Filter";
             helpProvider1.SetShowHelp(Filter, true);
             Filter.Size = new Size(146, 31);
@@ -434,13 +434,15 @@
             rating.Name = "rating";
             rating.Width = 93;
             // 
-            // textBox4
+            // directions
             // 
-            textBox4.Location = new Point(257, 447);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(371, 27);
-            textBox4.TabIndex = 17;
+            directions.FormattingEnabled = true;
+            directions.Items.AddRange(new object[] { "Программная инженерия", "Бизнес-информатика", "Экономика", "Менеджмент", "История", "Юриспруденция", "Дизайн", "Лингвистика", "Все направления" });
+            directions.Location = new Point(257, 448);
+            directions.Name = "directions";
+            directions.Size = new Size(371, 28);
+            directions.TabIndex = 19;
+            directions.SelectedIndexChanged += Directions_SelectedIndexChanged;
             // 
             // Mobility
             // 
@@ -450,8 +452,8 @@
             BackColor = Color.FromArgb(215, 245, 255);
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1582, 923);
+            Controls.Add(directions);
             Controls.Add(Filter);
-            Controls.Add(textBox4);
             Controls.Add(order);
             Controls.Add(mobTable);
             Controls.Add(mobTable2);
@@ -516,7 +518,7 @@
         private DataGridViewTextBoxColumn time;
         private DataGridViewTextBoxColumn rating;
         private Button order;
-        private TextBox textBox4;
         private Button Filter;
+        private ComboBox directions;
     }
 }

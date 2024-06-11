@@ -73,9 +73,7 @@ namespace WindowsApp
                 object[] rowData = new object[row.ItemArray.Length + 1];
                 rowData[0] = "false";
                 for (int j = 0; j < row.ItemArray.Length; j++)
-                {
                     rowData[j + 1] = row.ItemArray[j];
-                }
                 mobTable.Rows.Add(rowData);
             }
         }
@@ -227,9 +225,62 @@ namespace WindowsApp
 
         }
 
+        List<object[]> apps = new List<object[]>();
+
         private void Filter_Click(object sender, EventArgs e)
         {
+            string chosen = directions.Text;
+            for (int rowIndex = mobTable.Rows.Count - 2; rowIndex >= 0; rowIndex--)
+            {
+                object[] rowData = new object[12];
+                rowData[0] = "false";
+                for (int columnIndex = 0; columnIndex < 12; columnIndex++)
+                    rowData[columnIndex] = mobTable.Rows[rowIndex].Cells[columnIndex].Value;
+                apps.Add(rowData);
+                mobTable.Rows.RemoveAt(rowIndex);
+            }
+            apps = apps.Distinct(new ArrayEqualityComparer()).ToList();
+            if (chosen == "Все направления" || chosen == "")
+            {
+                foreach (object[] rowData in apps)
+                    mobTable.Rows.Add(rowData);
+            }
+            else
+            {
+                foreach (object[] rowData in apps)
+                {
+                    if (rowData[2].ToString() == chosen)
+                        mobTable.Rows.Add(rowData);
+                }
+            }
+        }
 
+        public class ArrayEqualityComparer : IEqualityComparer<object[]>
+        {
+            public bool Equals(object[] x, object[] y)
+            {
+                if (x == null || y == null)
+                    return x == y;
+                if (x.Length != y.Length)
+                    return false;
+                return x.SequenceEqual(y);
+            }
+            public int GetHashCode(object[] obj)
+            {
+                unchecked
+                {
+                    int hash = 17;
+                    foreach (object value in obj)
+                        hash = hash * 23 + (value != null ? value.GetHashCode() : 0);
+                    return hash;
+                }
+            }
+        }
+
+        private void Directions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //мирон балда лохпеда
+            //666 228 777 1488 52 1337 13 
         }
     }
-}
+}    
