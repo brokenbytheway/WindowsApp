@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using static System.Net.Mime.MediaTypeNames;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace WindowsApp
@@ -23,17 +13,6 @@ namespace WindowsApp
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void ExportFromExcel_Click(object sender, EventArgs e)
@@ -54,6 +33,7 @@ namespace WindowsApp
                 }
             }
         }
+
         public void LoadDataFromExcelToDataGridView(string fpath, string ext, string hdr)
         {
             string con = "Provider=Microsoft.Ace.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0;HDR={1}'";
@@ -76,16 +56,6 @@ namespace WindowsApp
                     rowData[j + 1] = row.ItemArray[j];
                 mobTable.Rows.Add(rowData);
             }
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -112,12 +82,10 @@ namespace WindowsApp
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void Mobility_Load(object sender, EventArgs e)
         {
-
         }
 
         private void export_Click(object sender, EventArgs e)
@@ -145,17 +113,11 @@ namespace WindowsApp
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void help_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "Help.chm");
-        }
-
-        private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -179,18 +141,10 @@ namespace WindowsApp
 
         private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void clear_Click(object sender, EventArgs e)
-        {
-            for (int i = mobTable2.Rows.Count - 2; i >= 0; i--)
-                mobTable2.Rows.RemoveAt(i);
         }
 
         private void mobTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -218,11 +172,6 @@ namespace WindowsApp
                 MessageBox.Show("Ошибка сортировки: рейтинг должен быть заполнен в каждой строке. Загрузите таблицу заново и заполните рейтинг.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // Дополнительная логика обработки ошибки, если необходимо
             }
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-
         }
 
         List<object[]> apps = new List<object[]>();
@@ -279,8 +228,6 @@ namespace WindowsApp
 
         private void Directions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //мирон балда лохпеда
-            //666 228 777 1488 52 1337 13 
         }
     }
 }    
