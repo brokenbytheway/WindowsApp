@@ -76,10 +76,11 @@
             textBox2.BackColor = Color.CornflowerBlue;
             textBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             textBox2.ForeColor = SystemColors.Window;
-            textBox2.Location = new Point(0, 513);
+            textBox2.Location = new Point(0, 385);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
-            textBox2.Size = new Size(1581, 27);
+            textBox2.Size = new Size(1384, 23);
             textBox2.TabIndex = 6;
             textBox2.Text = "Одобренные заявки";
             textBox2.TextAlign = HorizontalAlignment.Center;
@@ -92,20 +93,22 @@
             helpProvider1.SetHelpKeyword(add, "25");
             helpProvider1.SetHelpNavigator(add, HelpNavigator.TopicId);
             add.Image = Properties.Resources.стрелка_вниз;
-            add.Location = new Point(686, 446);
+            add.Location = new Point(600, 334);
+            add.Margin = new Padding(3, 2, 3, 2);
             add.Name = "add";
             helpProvider1.SetShowHelp(add, true);
-            add.Size = new Size(80, 60);
+            add.Size = new Size(70, 45);
             add.TabIndex = 5;
             add.UseVisualStyleBackColor = true;
             add.Click += button2_Click;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(257, 8);
+            textBox3.Location = new Point(225, 6);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
-            textBox3.Size = new Size(371, 27);
+            textBox3.Size = new Size(325, 23);
             textBox3.TabIndex = 3;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
@@ -114,10 +117,11 @@
             ExportFromExcel.Cursor = Cursors.Hand;
             helpProvider1.SetHelpKeyword(ExportFromExcel, "24");
             helpProvider1.SetHelpNavigator(ExportFromExcel, HelpNavigator.TopicId);
-            ExportFromExcel.Location = new Point(103, 7);
+            ExportFromExcel.Location = new Point(90, 5);
+            ExportFromExcel.Margin = new Padding(3, 2, 3, 2);
             ExportFromExcel.Name = "ExportFromExcel";
             helpProvider1.SetShowHelp(ExportFromExcel, true);
-            ExportFromExcel.Size = new Size(148, 29);
+            ExportFromExcel.Size = new Size(130, 22);
             ExportFromExcel.TabIndex = 2;
             ExportFromExcel.Text = "Загрузить данные";
             ExportFromExcel.UseVisualStyleBackColor = true;
@@ -128,11 +132,10 @@
             ExportToExcel.Cursor = Cursors.Hand;
             helpProvider1.SetHelpKeyword(ExportToExcel, "46");
             helpProvider1.SetHelpNavigator(ExportToExcel, HelpNavigator.TopicId);
-            ExportToExcel.Location = new Point(1396, 479);
-            ExportToExcel.Margin = new Padding(3, 4, 3, 4);
+            ExportToExcel.Location = new Point(1222, 359);
             ExportToExcel.Name = "ExportToExcel";
             helpProvider1.SetShowHelp(ExportToExcel, true);
-            ExportToExcel.Size = new Size(182, 31);
+            ExportToExcel.Size = new Size(159, 23);
             ExportToExcel.TabIndex = 7;
             ExportToExcel.Text = "Экспорт в Excel-файл";
             ExportToExcel.UseVisualStyleBackColor = true;
@@ -143,10 +146,11 @@
             textBox1.BackColor = Color.CornflowerBlue;
             textBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             textBox1.ForeColor = SystemColors.Window;
-            textBox1.Location = new Point(0, 42);
+            textBox1.Location = new Point(0, 32);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(1581, 27);
+            textBox1.Size = new Size(1384, 23);
             textBox1.TabIndex = 0;
             textBox1.Text = "Заявки на мобильность";
             textBox1.TextAlign = HorizontalAlignment.Center;
@@ -155,9 +159,10 @@
             // help
             // 
             help.Cursor = Cursors.Help;
-            help.Location = new Point(3, 7);
+            help.Location = new Point(3, 5);
+            help.Margin = new Padding(3, 2, 3, 2);
             help.Name = "help";
-            help.Size = new Size(94, 29);
+            help.Size = new Size(82, 22);
             help.TabIndex = 8;
             help.Text = "Помощь";
             help.UseVisualStyleBackColor = true;
@@ -174,10 +179,11 @@
             helpProvider1.SetHelpKeyword(delete, "45");
             helpProvider1.SetHelpNavigator(delete, HelpNavigator.TopicId);
             delete.Image = Properties.Resources.стрелка_вверх;
-            delete.Location = new Point(803, 446);
+            delete.Location = new Point(703, 334);
+            delete.Margin = new Padding(3, 2, 3, 2);
             delete.Name = "delete";
             helpProvider1.SetShowHelp(delete, true);
-            delete.Size = new Size(80, 60);
+            delete.Size = new Size(70, 45);
             delete.TabIndex = 11;
             delete.UseVisualStyleBackColor = true;
             delete.Click += button1_Click_1;
@@ -188,10 +194,11 @@
             order.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             helpProvider1.SetHelpKeyword(order, "25");
             helpProvider1.SetHelpNavigator(order, HelpNavigator.TopicId);
-            order.Location = new Point(4, 442);
+            order.Location = new Point(4, 332);
+            order.Margin = new Padding(3, 2, 3, 2);
             order.Name = "order";
             helpProvider1.SetShowHelp(order, true);
-            order.Size = new Size(146, 31);
+            order.Size = new Size(128, 23);
             order.TabIndex = 15;
             order.Text = "Сортировать";
             order.UseVisualStyleBackColor = true;
@@ -203,10 +210,11 @@
             Filter.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             helpProvider1.SetHelpKeyword(Filter, "25");
             helpProvider1.SetHelpNavigator(Filter, HelpNavigator.TopicId);
-            Filter.Location = new Point(369, 474);
+            Filter.Location = new Point(931, 6);
+            Filter.Margin = new Padding(3, 2, 3, 2);
             Filter.Name = "Filter";
             helpProvider1.SetShowHelp(Filter, true);
-            Filter.Size = new Size(146, 31);
+            Filter.Size = new Size(128, 23);
             Filter.TabIndex = 18;
             Filter.Text = "Фильтровать";
             Filter.UseVisualStyleBackColor = true;
@@ -217,11 +225,12 @@
             mobTable2.BackgroundColor = SystemColors.ActiveCaption;
             mobTable2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             mobTable2.Columns.AddRange(new DataGridViewColumn[] { toAdd2, course2, direction2, surname2, name2, patronymic2, email2, wasOrNo2, mobDirection2, campus2, time2, rating2 });
-            mobTable2.Location = new Point(0, 539);
+            mobTable2.Location = new Point(0, 404);
+            mobTable2.Margin = new Padding(3, 2, 3, 2);
             mobTable2.Name = "mobTable2";
             mobTable2.RowHeadersWidth = 51;
             mobTable2.RowTemplate.Height = 29;
-            mobTable2.Size = new Size(1582, 359);
+            mobTable2.Size = new Size(1384, 269);
             mobTable2.TabIndex = 12;
             mobTable2.CellContentClick += dataGridView1_CellContentClick_2;
             // 
@@ -233,7 +242,7 @@
             toAdd2.Name = "toAdd2";
             toAdd2.Resizable = DataGridViewTriState.True;
             toAdd2.SortMode = DataGridViewColumnSortMode.Automatic;
-            toAdd2.Width = 102;
+            toAdd2.Width = 82;
             // 
             // course2
             // 
@@ -241,7 +250,7 @@
             course2.HeaderText = "Курс";
             course2.MinimumWidth = 24;
             course2.Name = "course2";
-            course2.Width = 70;
+            course2.Width = 58;
             // 
             // direction2
             // 
@@ -249,7 +258,7 @@
             direction2.HeaderText = "Направление";
             direction2.MinimumWidth = 24;
             direction2.Name = "direction2";
-            direction2.Width = 133;
+            direction2.Width = 106;
             // 
             // surname2
             // 
@@ -257,7 +266,7 @@
             surname2.HeaderText = "Фамилия";
             surname2.MinimumWidth = 24;
             surname2.Name = "surname2";
-            surname2.Width = 102;
+            surname2.Width = 83;
             // 
             // name2
             // 
@@ -265,7 +274,7 @@
             name2.HeaderText = "Имя";
             name2.MinimumWidth = 24;
             name2.Name = "name2";
-            name2.Width = 68;
+            name2.Width = 56;
             // 
             // patronymic2
             // 
@@ -273,7 +282,7 @@
             patronymic2.HeaderText = "Отчество";
             patronymic2.MinimumWidth = 24;
             patronymic2.Name = "patronymic2";
-            patronymic2.Width = 101;
+            patronymic2.Width = 83;
             // 
             // email2
             // 
@@ -281,7 +290,7 @@
             email2.HeaderText = "Почта";
             email2.MinimumWidth = 24;
             email2.Name = "email2";
-            email2.Width = 80;
+            email2.Width = 66;
             // 
             // wasOrNo2
             // 
@@ -289,7 +298,7 @@
             wasOrNo2.HeaderText = "Был ли на мобильности ранее";
             wasOrNo2.MinimumWidth = 24;
             wasOrNo2.Name = "wasOrNo2";
-            wasOrNo2.Width = 191;
+            wasOrNo2.Width = 154;
             // 
             // mobDirection2
             // 
@@ -297,7 +306,7 @@
             mobDirection2.HeaderText = "Направление мобильности";
             mobDirection2.MinimumWidth = 24;
             mobDirection2.Name = "mobDirection2";
-            mobDirection2.Width = 210;
+            mobDirection2.Width = 168;
             // 
             // campus2
             // 
@@ -305,7 +314,7 @@
             campus2.HeaderText = "Кампус";
             campus2.MinimumWidth = 24;
             campus2.Name = "campus2";
-            campus2.Width = 89;
+            campus2.Width = 73;
             // 
             // time2
             // 
@@ -313,7 +322,7 @@
             time2.HeaderText = "Срок";
             time2.MinimumWidth = 24;
             time2.Name = "time2";
-            time2.Width = 72;
+            time2.Width = 60;
             // 
             // rating2
             // 
@@ -321,18 +330,19 @@
             rating2.HeaderText = "Рейтинг";
             rating2.MinimumWidth = 24;
             rating2.Name = "rating2";
-            rating2.Width = 93;
+            rating2.Width = 76;
             // 
             // mobTable
             // 
             mobTable.BackgroundColor = SystemColors.ActiveCaption;
             mobTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             mobTable.Columns.AddRange(new DataGridViewColumn[] { toAdd, course, direction, surname, name, patronymic, email, wasOrNo, mobDirection, campus, time, rating });
-            mobTable.Location = new Point(0, 68);
+            mobTable.Location = new Point(0, 51);
+            mobTable.Margin = new Padding(3, 2, 3, 2);
             mobTable.Name = "mobTable";
             mobTable.RowHeadersWidth = 51;
             mobTable.RowTemplate.Height = 29;
-            mobTable.Size = new Size(1582, 369);
+            mobTable.Size = new Size(1384, 277);
             mobTable.TabIndex = 14;
             mobTable.CellContentClick += mobTable_CellContentClick;
             // 
@@ -344,7 +354,7 @@
             toAdd.Name = "toAdd";
             toAdd.Resizable = DataGridViewTriState.True;
             toAdd.SortMode = DataGridViewColumnSortMode.Automatic;
-            toAdd.Width = 102;
+            toAdd.Width = 82;
             // 
             // course
             // 
@@ -352,7 +362,7 @@
             course.HeaderText = "Курс";
             course.MinimumWidth = 24;
             course.Name = "course";
-            course.Width = 70;
+            course.Width = 58;
             // 
             // direction
             // 
@@ -360,7 +370,7 @@
             direction.HeaderText = "Направление";
             direction.MinimumWidth = 24;
             direction.Name = "direction";
-            direction.Width = 133;
+            direction.Width = 106;
             // 
             // surname
             // 
@@ -368,7 +378,7 @@
             surname.HeaderText = "Фамилия";
             surname.MinimumWidth = 24;
             surname.Name = "surname";
-            surname.Width = 102;
+            surname.Width = 83;
             // 
             // name
             // 
@@ -376,7 +386,7 @@
             name.HeaderText = "Имя";
             name.MinimumWidth = 24;
             name.Name = "name";
-            name.Width = 68;
+            name.Width = 56;
             // 
             // patronymic
             // 
@@ -384,7 +394,7 @@
             patronymic.HeaderText = "Отчество";
             patronymic.MinimumWidth = 24;
             patronymic.Name = "patronymic";
-            patronymic.Width = 101;
+            patronymic.Width = 83;
             // 
             // email
             // 
@@ -392,7 +402,7 @@
             email.HeaderText = "Почта";
             email.MinimumWidth = 24;
             email.Name = "email";
-            email.Width = 80;
+            email.Width = 66;
             // 
             // wasOrNo
             // 
@@ -400,7 +410,7 @@
             wasOrNo.HeaderText = "Был ли на мобильности ранее";
             wasOrNo.MinimumWidth = 24;
             wasOrNo.Name = "wasOrNo";
-            wasOrNo.Width = 191;
+            wasOrNo.Width = 154;
             // 
             // mobDirection
             // 
@@ -408,7 +418,7 @@
             mobDirection.HeaderText = "Направление мобильности";
             mobDirection.MinimumWidth = 24;
             mobDirection.Name = "mobDirection";
-            mobDirection.Width = 210;
+            mobDirection.Width = 168;
             // 
             // campus
             // 
@@ -416,7 +426,7 @@
             campus.HeaderText = "Кампус";
             campus.MinimumWidth = 24;
             campus.Name = "campus";
-            campus.Width = 89;
+            campus.Width = 73;
             // 
             // time
             // 
@@ -424,7 +434,7 @@
             time.HeaderText = "Срок";
             time.MinimumWidth = 24;
             time.Name = "time";
-            time.Width = 72;
+            time.Width = 60;
             // 
             // rating
             // 
@@ -432,26 +442,27 @@
             rating.HeaderText = "Рейтинг";
             rating.MinimumWidth = 24;
             rating.Name = "rating";
-            rating.Width = 93;
+            rating.Width = 76;
             // 
             // directions
             // 
             directions.FormattingEnabled = true;
             directions.Items.AddRange(new object[] { "Программная инженерия", "Бизнес-информатика", "Экономика", "Менеджмент", "История", "Юриспруденция", "Дизайн", "Лингвистика", "Все направления" });
-            directions.Location = new Point(257, 448);
+            directions.Location = new Point(600, 6);
+            directions.Margin = new Padding(3, 2, 3, 2);
             directions.Name = "directions";
-            directions.Size = new Size(371, 28);
+            directions.Size = new Size(325, 23);
             directions.TabIndex = 19;
             directions.SelectedIndexChanged += Directions_SelectedIndexChanged;
             // 
             // Mobility
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(215, 245, 255);
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1582, 923);
+            ClientSize = new Size(1384, 692);
             Controls.Add(directions);
             Controls.Add(Filter);
             Controls.Add(order);
@@ -469,6 +480,7 @@
             helpProvider1.SetHelpKeyword(this, "221");
             helpProvider1.SetHelpNavigator(this, HelpNavigator.TopicId);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Mobility";
