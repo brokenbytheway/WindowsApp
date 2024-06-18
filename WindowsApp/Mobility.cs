@@ -169,7 +169,9 @@ namespace WindowsApp
             }
             catch (InvalidOperationException ex)
             {
-                MessageBox.Show("Ошибка сортировки: рейтинг должен быть заполнен в каждой строке. Загрузите таблицу заново и заполните рейтинг.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                foreach (object[] rowData in toSort)
+                    mobTable.Rows.Add(rowData);
+                MessageBox.Show("Ошибка сортировки: рейтинг должен быть заполнен в каждой строке.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // Дополнительная логика обработки ошибки, если необходимо
             }
         }
